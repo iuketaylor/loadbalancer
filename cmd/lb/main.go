@@ -48,12 +48,6 @@ func forwardRequest(w http.ResponseWriter, req *http.Request, serverUrl string) 
 		return
 	}
 
-	for key, values := range req.Header {
-		for _, value := range values {
-			backendReq.Header.Add(key, value)
-		}
-	}
-
 	client := &http.Client{}
 	resp, err := client.Do(backendReq)
 	if err != nil {
@@ -63,12 +57,6 @@ func forwardRequest(w http.ResponseWriter, req *http.Request, serverUrl string) 
 	defer resp.Body.Close()
 
 	log.Printf("Response from server %s: %s %s", serverUrl, resp.Proto, resp.Status)
-
-	for key, values := range resp.Header {
-		for _, value := range values {
-			w.Header().Add(key, value)
-		}
-	}
 
 	body, err := io.ReadAll(resp.Body)
 	if err != nil {
