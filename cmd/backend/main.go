@@ -14,7 +14,7 @@ func handleHome(w http.ResponseWriter, req *http.Request) {
 	log.Printf("Replied with a hello message")
 
 	w.WriteHeader(http.StatusOK)
-	fmt.Fprintf(w, "Hello From Backend Server %s", *serverId)
+	fmt.Fprintf(w, "Hello From Backend Server %s\n", *serverId)
 }
 
 func main() {

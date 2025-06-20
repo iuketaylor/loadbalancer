@@ -38,7 +38,7 @@ var lb *LoadBalancer
 func handleHome(w http.ResponseWriter, req *http.Request) {
 	serverUrl := lb.getNextServer()
 
-	go forwardRequest(w, req, serverUrl)
+	forwardRequest(w, req, serverUrl)
 }
 
 func forwardRequest(w http.ResponseWriter, req *http.Request, serverUrl string) {
