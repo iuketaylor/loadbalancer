@@ -1,5 +1,5 @@
 # Load Balancer
-[Link][challenge-url]
+[Coding Challenge][challenge-url]
 
 ## Build You Own Load Balancer
 
